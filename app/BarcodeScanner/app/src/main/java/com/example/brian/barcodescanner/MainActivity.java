@@ -1,17 +1,25 @@
 package com.example.brian.barcodescanner;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import com.scandit.barcodepicker.BarcodePicker;
+import com.scandit.barcodepicker.OnScanListener;
+import com.scandit.barcodepicker.ScanSession;
 import com.scandit.barcodepicker.ScanSettings;
 import com.scandit.barcodepicker.ScanditLicense;
+import com.scandit.recognition.Barcode;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,22 +30,39 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        
+        ScanditLicense.setAppKey("CnJYRK3qiirDC07lVSJW7Z51n14JYMpXrG77XDI7W3Y");
+
+        ScanSettings settings = ScanSettings.create();
+        settings.setSymbologyEnabled(Barcode.SYMBOLOGY_EAN13, true);
+        settings.setSymbologyEnabled(Barcode.SYMBOLOGY_UPCA, true);
+
+
+        BarcodePicker barcodePicker = new BarcodePicker(this, settings);
+
+
+
+        barcodePicker.setOnScanListener(new OnScanListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+            public void didScan(ScanSession scanSession) {
+                List<Barcode> codes = scanSession.getNewlyRecognizedCodes();
+                Log.d("CODE", codes.get(0).getData());
+                scanSession.stopScanning();
+
+                Context context = getApplicationContext();
+
+                Toast toast = Toast.makeText(context, codes.get(0).getData(), Toast.LENGTH_LONG);
+                toast.show();
             }
         });
-        ScanditLicense.setAppKey("CnJYRK3qiirDC07lVSJW7Z51n14JYMpXrG77XDI7W3Y");
-        BarcodePicker barcodePicker = new BarcodePicker(this, ScanSettings.create());
 
-    // Add scan view as the activity's root view
+        barcodePicker.startScanning();
+
+
+        // Add scan view as the activity's root view
         setContentView(barcodePicker);
-
-
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
