@@ -1,6 +1,7 @@
 package com.example.brian.barcodescanner;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -31,37 +32,6 @@ public class MainActivity extends AppCompatActivity implements Scanner.OnFragmen
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*
-        ScanditLicense.setAppKey("CnJYRK3qiirDC07lVSJW7Z51n14JYMpXrG77XDI7W3Y");
-
-        ScanSettings settings = ScanSettings.create();
-        settings.setSymbologyEnabled(Barcode.SYMBOLOGY_EAN13, true);
-        settings.setSymbologyEnabled(Barcode.SYMBOLOGY_UPCA, true);
-
-
-        BarcodePicker barcodePicker = new BarcodePicker(this, settings);
-
-
-
-        barcodePicker.setOnScanListener(new OnScanListener() {
-            @Override
-            public void didScan(ScanSession scanSession) {
-                List<Barcode> codes = scanSession.getNewlyRecognizedCodes();
-                Log.d("CODE", codes.get(0).getData());
-                scanSession.stopScanning();
-
-                Context context = getApplicationContext();
-
-                Toast toast = Toast.makeText(context, codes.get(0).getData(), Toast.LENGTH_LONG);
-                toast.show();
-            }
-        });
-
-        barcodePicker.startScanning();
-
-
-        // Add scan view as the activity's root view
-        setContentView(barcodePicker);*/
     }
 
 
