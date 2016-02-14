@@ -9,6 +9,10 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.scandit.barcodepicker.BarcodePicker;
+import com.scandit.barcodepicker.ScanSettings;
+import com.scandit.barcodepicker.ScanditLicense;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -26,6 +30,13 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+        ScanditLicense.setAppKey("CnJYRK3qiirDC07lVSJW7Z51n14JYMpXrG77XDI7W3Y");
+        BarcodePicker barcodePicker = new BarcodePicker(this, ScanSettings.create());
+
+    // Add scan view as the activity's root view
+        setContentView(barcodePicker);
+
+
     }
 
     @Override
