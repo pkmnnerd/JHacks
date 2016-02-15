@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="50dp"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.tyler.productpage.ProductPage">
+
+    <ImageView
+        android:id="@+id/product_image"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginBottom="10dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:text="[PRODUCT NAME]"
+        android:textSize="25dp"
+        android:textColor="#000"
+        android:layout_below="@+id/product_image" />
+    <TextView
+        android:id="@+id/price"
+        android:textColor="#000"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="[PRODUCT PRICE]"
+        android:layout_below="@+id/name" />
+    <!--<Button
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="WISH"
+        android:layout_below="@+id/price"
+        android:layout_toLeftOf="@+id/buy_button"
+        android:layout_alignParentLeft = "true"/> -->
+    <TextView android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:textColor="#505050"
+        android:text="__________________________"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        />
+    <TextView android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/line"
+        android:textColor="#000"
+        android:textSize="15dp"
+        android:text="[PRODUCT DESCRIPTION]"/>
+
+</RelativeLayout>
+
+</ScrollView>

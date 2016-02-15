@@ -1,0 +1,54 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/scanner"
+    android:layout_height="match_parent"
+    tools:context="com.example.brian.barcodescanner.Scanner">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView android:id="@+id/name"
+        android:text="@string/camerainput"
+        android:textColor="#000"
+        android:textSize="28dp"
+        android:fontFamily="sans-serif-condensed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true" />
+
+    <FrameLayout android:id="@+id/camera_input"
+        android:layout_below="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp" >
+    </FrameLayout>
+
+    <!--Here we add a horizontal line lmao -->
+    <TextView android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:textColor="#0f0f0f"
+        android:text="__________________________"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="320dp"
+        android:layout_marginBottom="20dp" />
+
+    <EditText android:id="@+id/edit_message"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/search"
+        android:layout_below="@+id/line"
+        android:layout_toStartOf="@+id/button" />
+
+    <Button
+        android:layout_below="@+id/line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:text="@string/searchbutton"
+        android:id="@+id/button" />
+
+
+
+</RelativeLayout>
